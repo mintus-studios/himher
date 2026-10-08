@@ -1,0 +1,10 @@
+# Files that stay on this computer and never go online
+
+# Notes for working on the site
+CLAUDE.md
+README.md
+.claude/
+
+# Song-list screenshots and the stray Windows shortcut in images/
+images/Screenshot_*.png
+*.lnk

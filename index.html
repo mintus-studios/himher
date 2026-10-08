@@ -1,75 +1,326 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-lang="de" class="no-js">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Him/Her ist ein erfahrenes Musik-Duo aus Mainz, das Hochzeiten und andere Events musikalisch begleitet. Perfekte Live-Musik für Ihre Hochzeit.">
-    <meta name="keywords" content="Hochzeits-Duo Mainz, Hochzeitsband Mainz, Live-Musik Hochzeit, Musik für Hochzeit Mainz, Hochzeit Band">
-    <meta name="author" content="Him/Her">
-    <meta name="robots" content="index, follow">
-    <title>Him/Her - Hochzeits-Duo aus Mainz</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon-96x96.png" type="image/png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-72x72.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- EDIT: page title (the English title is in js/main.js) and description (shown in Google and link previews) -->
+  <title>HIM/HER — Live-Duo aus Mainz</title>
+  <meta name="description" content="HIM/HER: Live-Duo aus Mainz. Live music duo from Mainz, Germany. Listen, follow and book us.">
+
+  <!-- Pick the language before the page draws, so English visitors don't see German flash up first -->
+  <script>
+    (function () {
+      var lang;
+      try { lang = localStorage.getItem("lang"); } catch (e) {}
+      if (lang !== "de" && lang !== "en") {
+        lang = (navigator.language || "de").toLowerCase().indexOf("de") === 0 ? "de" : "en";
+      }
+      document.documentElement.setAttribute("data-lang", lang);
+      document.documentElement.setAttribute("lang", lang);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Site icon (browser tab, bookmarks, phone home screen) -->
+  <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon-60x60.png">
 </head>
 <body>
-    <!-- Header / Hero Section -->
-    <header class="hero">
-        <h1>Him/Her - Euer Hochzeits-Duo aus Mainz</h1>
-        <p class="intro">Unvergessliche Live-Musik für Hochzeiten und besondere Momente.</p>
-    </header>
 
-    <!-- About Section -->
-    <section class="about">
-        <div class="about-content">
-            <img src="bild1.jpg" alt="Hochzeits-Duo Him/Her bei einem Auftritt" class="about-img">
-            <div class="about-text">
-                <h2>Hochzeitsmusik vom Profi-Duo</h2>
-                <p>
-                    Wir sind Him/Her, ein erfahrenes Musik-Duo, das bereits auf vielen Hochzeiten und Veranstaltungen in Mainz und Umgebung gespielt hat. 
-                    Unsere Musik macht euren besonderen Tag unvergesslich. Von romantischen Balladen bis hin zu stimmungsvoller Tanzmusik – wir sorgen für die passende Atmosphäre.
-                </p>
-            </div>
+  <!--
+    HOW THE TWO LANGUAGES WORK
+    Every text exists twice: <span lang="de">…</span> and <span lang="en">…</span>.
+    The CSS hides the language that isn't selected. When you edit a text, change BOTH versions.
+  -->
+
+  <a class="skip-link" href="#main"><span lang="de">Zum Inhalt springen</span><span lang="en">Skip to content</span></a>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- EDIT: duo name / logo -->
+      <a href="#top" class="logo">HIM<span>/HER</span></a>
+
+      <div class="header-actions">
+        <nav id="site-nav" class="site-nav" aria-label="Main">
+          <ul>
+            <li><a href="#about"><span lang="de">Über uns</span><span lang="en">About</span></a></li>
+            <li><a href="#live">Live</a></li>
+            <li><a href="#contact"><span lang="de">Kontakt</span><span lang="en">Contact</span></a></li>
+          </ul>
+        </nav>
+
+        <div class="lang-switch" role="group" aria-label="Sprache / Language">
+          <button type="button" data-set-lang="de">DE</button>
+          <button type="button" data-set-lang="en">EN</button>
         </div>
-        <img src="bild.jpg" alt="Him/Her bei einer Hochzeitsfeier" class="about-secondary-img">
-    </section>
 
-    <!-- Instagram Section -->
-    <section class="instagram">
-        <h2>Unsere Musik auf Instagram</h2>
-        <p>Schaut euch unsere neuesten Videos an und gewinnt einen Einblick in unsere Auftritte.</p>
-        <div class="videos">
-            <a href="https://www.instagram.com/reel/C_bZn2-sSoX/?igsh=NTJjcm04ZmpxZmVu" target="_blank" class="button">Video 1</a>
-            <a href="https://www.instagram.com/reel/Cy0ELVFsmDI/?igsh=MXRxbHB3Mzdjd3NvYg==" target="_blank" class="button">Video 2</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menü öffnen">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===== Hero ===== -->
+    <section id="top" class="hero">
+      <!-- EDIT: background video (muted, loops). Poster image shows while it loads. -->
+      <video class="hero-video" autoplay loop muted playsinline poster="images/himher.jpg" aria-hidden="true">
+        <source src="images/video.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="blob blob-1" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <!-- EDIT: genre / location line -->
+        <p class="eyebrow"><span lang="de">Live-Duo · Mainz</span><span lang="en">Live Duo · Mainz, Germany</span></p>
+        <!-- EDIT: duo name -->
+        <h1 class="hero-title">HIM/<br><span>HER</span></h1>
+        <!-- EDIT: tagline -->
+        <p class="hero-tagline">
+          <span lang="de">Von Mainz bis Amerika, mit Gitarre im Gepäck.</span>
+          <span lang="en">From Germany to America, guitar in hand.</span>
+        </p>
+        <div class="hero-actions">
+          <a href="#live" class="btn btn-primary"><span lang="de">Live erleben</span><span lang="en">See us live</span></a>
+          <a href="#contact" class="btn btn-ghost"><span lang="de">Uns buchen</span><span lang="en">Book us</span></a>
         </div>
+      </div>
     </section>
 
-    <!-- Location Section -->
-    <section class="location">
-        <h2>Euer Hochzeits-Duo aus Mainz</h2>
-        <p>
-            Him/Her ist in Mainz und Umgebung aktiv. Ob Wiesbaden, Frankfurt, Darmstadt oder im Rheingau – wir begleiten eure Hochzeit oder Feier mit einzigartiger Live-Musik.
+    <!-- ===== About ===== -->
+    <section id="about" class="section section-light reveal">
+      <div class="container">
+        <h2 class="section-title">
+          <span lang="de">Über <em>uns</em></span><span lang="en">About <em>us</em></span>
+        </h2>
+        <!-- EDIT: duo bio -->
+        <p class="lead">
+          <span lang="de">
+            Brittany und Diet: zwei Musikliebhaber, die sich gefunden haben, um ihre Musik zu anderen zu bringen.
+            Ihr findet uns in Pubs, auf kleinen Bühnen und überall, wo es ein Mikro und ein Publikum gibt,
+            von Mainz bis in die USA.
+          </span>
+          <span lang="en">
+            Brittany and Diet: two music lovers who found each other to bring their music to others.
+            You'll find us in pubs, on small stages, and wherever there's a mic and a crowd,
+            from Germany all the way to the US.
+          </span>
         </p>
+
+        <div class="about-grid">
+          <figure class="band-photo">
+            <img src="images/himher.jpg"
+                 alt="HIM/HER auf einer Open-Air-Bühne: Diet an der E-Gitarre, Brittany am Mikrofon"
+                 data-alt-de="HIM/HER auf einer Open-Air-Bühne: Diet an der E-Gitarre, Brittany am Mikrofon"
+                 data-alt-en="HIM/HER on an open-air stage: Diet on electric guitar, Brittany singing"
+                 loading="lazy">
+          </figure>
+
+          <div class="members">
+            <!-- EDIT: names and instruments -->
+            <article class="member-card">
+              <h3>Brittany</h3>
+              <p class="member-role">
+                <span lang="de">Gesang</span>
+                <span lang="en">Vocals</span>
+              </p>
+            </article>
+            <article class="member-card">
+              <h3>Diet</h3>
+              <p class="member-role">
+                <span lang="de">Gitarre · Mundharmonika · Gesang</span>
+                <span lang="en">Guitar · Harmonica · Vocals</span>
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <!-- EDIT: more live photos -->
+        <div class="photo-strip">
+          <figure>
+            <img src="images/live-open-air.jpg"
+                 alt="Brittany singt auf einem Barhocker, dahinter Diet an der Akustikgitarre, bei einem Open-Air-Auftritt"
+                 data-alt-de="Brittany singt auf einem Barhocker, dahinter Diet an der Akustikgitarre, bei einem Open-Air-Auftritt"
+                 data-alt-en="Brittany singing on a bar stool with Diet on acoustic guitar behind her at an open-air gig"
+                 loading="lazy">
+          </figure>
+          <figure>
+            <img src="images/live-evening.jpg"
+                 alt="Brittany im blauen Kleid am Mikrofon, Diet an der blauen E-Gitarre, bei einem Abendauftritt im Garten"
+                 data-alt-de="Brittany im blauen Kleid am Mikrofon, Diet an der blauen E-Gitarre, bei einem Abendauftritt im Garten"
+                 data-alt-en="Brittany in a blue dress at the mic, Diet on a blue electric guitar, at an evening garden gig"
+                 loading="lazy">
+          </figure>
+        </div>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact">
-        <h2>Kontakt</h2>
-        <p>Hinterlasst uns eine Nachricht, und wir melden uns bei euch!</p>
-        <form action="mailto:himherband@gmail.com" method="post" enctype="text/plain">
-            <input type="text" name="name" placeholder="Euer Name" required>
-            <input type="email" name="email" placeholder="Eure E-Mail-Adresse" required>
-            <textarea name="message" rows="5" placeholder="Eure Nachricht" required></textarea>
-            <button type="submit">Nachricht senden</button>
-        </form>
-    </section>
-
-    <!-- Footer Section -->
-    <footer>
-        <p>
-            Folgt uns auf <a href="https://www.instagram.com/himherduo?igsh=emczb2xmN2pjcWdh" target="_blank">Instagram</a> oder schreibt uns direkt an: 
-            <a href="mailto:himherband@gmail.com">himherband@gmail.com</a>
+    <!-- ===== Live ===== -->
+    <section id="live" class="section section-gradient reveal">
+      <div class="container">
+        <h2 class="section-title">
+          <span lang="de">Live <em>erleben</em></span><span lang="en">See us <em>live</em></span>
+        </h2>
+        <p class="lead">
+          <span lang="de">Am besten erlebt man uns live: zwei Stimmen, Gitarre und Mundharmonika, ganz nah dran.</span>
+          <span lang="en">We're best experienced live: two voices, guitar and harmonica, up close.</span>
         </p>
-    </footer>
+
+        <ul class="live-facts">
+          <li><strong>2</strong><span lang="de">Stimmen</span><span lang="en">voices</span></li>
+          <li><strong>1</strong><span lang="de">Gitarre</span><span lang="en">guitar</span></li>
+          <li><strong>1</strong><span lang="de">Mundharmonika</span><span lang="en">harmonica</span></li>
+        </ul>
+
+        <!-- EDIT: live clips. preload="metadata" = the video only downloads when someone presses play -->
+        <div class="live-videos">
+          <figure class="live-video">
+            <video controls playsinline preload="metadata">
+              <source src="images/live-valerie-pub.mp4#t=0.5" type="video/mp4">
+            </video>
+            <figcaption>
+              <strong>Valerie</strong>
+              <span class="tag" lang="de">Pub-Abend</span><span class="tag" lang="en">Pub night</span>
+            </figcaption>
+          </figure>
+          <figure class="live-video">
+            <video controls playsinline preload="metadata">
+              <source src="images/live-price-tag-wedding.mp4#t=0.5" type="video/mp4">
+            </video>
+            <figcaption>
+              <strong>Price Tag</strong>
+              <span class="tag tag-yellow" lang="de">Hochzeit</span><span class="tag tag-yellow" lang="en">Wedding</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- EDIT: song list (alphabetical). Add or remove <li> lines; update the "63" in the button text too. -->
+        <div class="setlist-wrap">
+          <h3 class="setlist-title">
+            <span lang="de">Was wir spielen</span><span lang="en">What we play</span>
+          </h3>
+          <ol class="setlist" id="setlist">
+            <li><strong>All Along the Watchtower</strong> <span class="artist">Jimi Hendrix</span></li>
+            <li><strong>Angels</strong> <span class="artist">Robbie Williams</span></li>
+            <li><strong>Are You Gonna Be My Girl</strong> <span class="artist">Jet</span></li>
+            <li><strong>Black Horse and the Cherry Tree</strong> <span class="artist">KT Tunstall</span></li>
+            <li><strong>Blame It on Me</strong> <span class="artist">George Ezra</span></li>
+            <li><strong>Blank Space</strong> <span class="artist">Taylor Swift</span></li>
+            <li><strong>Breakfast at Tiffany's</strong> <span class="artist">Deep Blue Something</span></li>
+            <li><strong>Budapest</strong> <span class="artist">George Ezra</span></li>
+            <li><strong>Crazy</strong> <span class="artist">Gnarls Barkley</span></li>
+            <li><strong>Crazy for You</strong> <span class="artist">Adele</span></li>
+            <li><strong>Don't Look Back in Anger</strong> <span class="artist">Oasis</span></li>
+            <li><strong>Don't Stop Believin'</strong> <span class="artist">Journey</span></li>
+            <li><strong>Faith</strong> <span class="artist">George Michael</span></li>
+            <li><strong>Flowers</strong> <span class="artist">Miley Cyrus</span></li>
+            <li><strong>Folsom Prison Blues</strong> <span class="artist">Johnny Cash</span></li>
+            <li><strong>Follow Me</strong> <span class="artist">Uncle Kracker</span></li>
+            <li><strong>Good Riddance (Time of Your Life)</strong> <span class="artist">Green Day</span></li>
+            <li><strong>Hold My Girl</strong> <span class="artist">George Ezra</span></li>
+            <li><strong>I Love Rock 'n' Roll</strong> <span class="artist">Joan Jett &amp; the Blackhearts</span></li>
+            <li><strong>I Wanna Dance with Somebody</strong> <span class="artist">Whitney Houston</span></li>
+            <li><strong>I Want It That Way</strong> <span class="artist">Backstreet Boys</span></li>
+            <li><strong>I'm Not the Only One</strong> <span class="artist">Sam Smith</span></li>
+            <li><strong>I'm Yours</strong> <span class="artist">Jason Mraz</span></li>
+            <li><strong>Ironic</strong> <span class="artist">Alanis Morissette</span></li>
+            <li><strong>Lean on Me</strong> <span class="artist">Bill Withers</span></li>
+            <li><strong>Let Her Go</strong> <span class="artist">Passenger</span></li>
+            <li><strong>Little Lion Man</strong> <span class="artist">Mumford &amp; Sons</span></li>
+            <li><strong>Lonely Boy</strong> <span class="artist">The Black Keys</span></li>
+            <li><strong>Love Yourself</strong> <span class="artist">Justin Bieber</span></li>
+            <li><strong>Marry You</strong> <span class="artist">Bruno Mars</span></li>
+            <li><strong>Memories</strong> <span class="artist">Maroon 5</span></li>
+            <li><strong>Mr. Brightside</strong> <span class="artist">The Killers</span></li>
+            <li><strong>New Rules</strong> <span class="artist">Dua Lipa</span></li>
+            <li><strong>No Roots</strong> <span class="artist">Alice Merton</span></li>
+            <li><strong>Otherside</strong> <span class="artist">Red Hot Chili Peppers</span></li>
+            <li><strong>Pink Pony Club</strong> <span class="artist">Chappell Roan</span></li>
+            <li><strong>Price Tag</strong> <span class="artist">Jessie J</span></li>
+            <li><strong>Purple Haze</strong> <span class="artist">Jimi Hendrix</span></li>
+            <li><strong>Rather Be</strong> <span class="artist">Clean Bandit</span></li>
+            <li><strong>Riptide</strong> <span class="artist">Vance Joy</span></li>
+            <li><strong>Rolling in the Deep</strong> <span class="artist">Adele</span></li>
+            <li><strong>Save Tonight</strong> <span class="artist">Eagle-Eye Cherry</span></li>
+            <li><strong>Scar Tissue</strong> <span class="artist">Red Hot Chili Peppers</span></li>
+            <li><strong>Seven Nation Army</strong> <span class="artist">The White Stripes</span></li>
+            <li><strong>Sex on Fire</strong> <span class="artist">Kings of Leon</span></li>
+            <li><strong>Shallow</strong> <span class="artist">Lady Gaga &amp; Bradley Cooper</span></li>
+            <li><strong>Shivers</strong> <span class="artist">Ed Sheeran</span></li>
+            <li><strong>Smells Like Teen Spirit</strong> <span class="artist">Nirvana</span></li>
+            <li><strong>Somebody to Love</strong> <span class="artist">Jefferson Airplane</span></li>
+            <li><strong>Stargazing</strong> <span class="artist">Myles Smith</span></li>
+            <li><strong>Stick Season</strong> <span class="artist">Noah Kahan</span></li>
+            <li><strong>Sweet Child O' Mine</strong> <span class="artist">Guns N' Roses</span></li>
+            <li><strong>The Best</strong> <span class="artist">Tina Turner</span></li>
+            <li><strong>The Cave</strong> <span class="artist">Mumford &amp; Sons</span></li>
+            <li><strong>Torn</strong> <span class="artist">Natalie Imbruglia</span></li>
+            <li><strong>Valerie</strong> <span class="artist">Amy Winehouse</span></li>
+            <li><strong>Wagon Wheel</strong> <span class="artist">Darius Rucker</span></li>
+            <li><strong>Wake Me Up</strong> <span class="artist">Avicii</span></li>
+            <li><strong>We Are Never Ever Getting Back Together</strong> <span class="artist">Taylor Swift</span></li>
+            <li><strong>What I Like About You</strong> <span class="artist">The Romantics</span></li>
+            <li><strong>When I Come Around</strong> <span class="artist">Green Day</span></li>
+            <li><strong>Wondering Why</strong> <span class="artist">The Red Clay Strays</span></li>
+            <li><strong>Zombie</strong> <span class="artist">The Cranberries</span></li>
+            <li class="setlist-more"><span lang="de">… und noch viel mehr!</span><span lang="en">… and many more!</span></li>
+          </ol>
+          <button type="button" class="btn btn-chip setlist-toggle" aria-expanded="false" aria-controls="setlist">
+            <span class="show-more"><span lang="de">Alle 63 Songs zeigen</span><span lang="en">Show all 63 songs</span></span>
+            <span class="show-less"><span lang="de">Weniger zeigen</span><span lang="en">Show less</span></span>
+          </button>
+        </div>
+
+        <div class="live-actions">
+          <a href="#contact" class="btn btn-primary"><span lang="de">Uns buchen</span><span lang="en">Book us</span></a>
+          <a href="https://www.instagram.com/himherduo/" target="_blank" rel="noopener" class="btn btn-chip">
+            <span lang="de">Nächste Auftritte auf Instagram</span><span lang="en">Next shows on Instagram</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section id="contact" class="section section-dark reveal">
+      <div class="container contact-inner">
+        <h2 class="section-title">
+          <span lang="de">Schreibt <em>uns</em></span><span lang="en">Let's <em>talk</em></span>
+        </h2>
+        <p class="lead">
+          <span lang="de">Booking, Presse oder einfach Hallo sagen? Wir freuen uns auf eure Nachricht.</span>
+          <span lang="en">Booking, press or just saying hi? Drop us a line.</span>
+        </p>
+
+        <!-- EDIT: booking email (change it in both places) -->
+        <a href="mailto:himherband@gmail.com" class="email-link">himherband@gmail.com</a>
+
+        <!-- EDIT: social profile URLs -->
+        <ul class="socials" aria-label="Social media">
+          <li>
+            <a href="https://www.instagram.com/himherduo/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1C2.6 9.9 2.6 10.3 2.6 12s0 2.1.1 3.3c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8a3.1 3.1 0 1 0 0-6.2 3.1 3.1 0 0 0 0 6.2zm5.1-8.2a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3z"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- EDIT: duo name -->
+      <p>© <span id="year"></span> HIM/HER. <span lang="de">Mit Liebe zur Musik gemacht.</span><span lang="en">Made with love for music.</span></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
