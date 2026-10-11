@@ -5,8 +5,8 @@ document.documentElement.classList.remove("no-js");
 // The starting language is picked by the small script in <head>.
 // Texts that can't be <span lang="…"> (page title, alt texts, menu label) are swapped here.
 const pageTitles = {
-  de: "HIM/HER — Live-Duo aus Mainz",
-  en: "HIM/HER — Live Music Duo from Germany", // EDIT: English page title
+  de: "HIM/HER — Live-Duo für Hochzeiten & Pubs aus Mainz",
+  en: "HIM/HER — Live Music Duo & Wedding Singer from Germany", // EDIT: English page title
 };
 const menuLabels = {
   de: { open: "Menü öffnen", close: "Menü schließen" },
