@@ -521,6 +521,11 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1; margin: 0; }
   font-size: clamp(1.75rem, 6vw, 2.5rem);
   margin-bottom: 20px;
 }
+.setlist-intro {
+  margin: -8px 0 20px;
+  color: var(--violet);
+  font-weight: 500;
+}
 .setlist {
   list-style: none;
   margin: 0 0 24px;
@@ -549,6 +554,49 @@ html:not(.no-js) .setlist:not(.is-expanded) li:nth-child(n+13) { display: none; 
 .setlist-toggle[aria-expanded="false"] .show-less { display: none; }
 
 .live-actions { display: flex; flex-wrap: wrap; gap: 16px; }
+
+/* ---------- Where we play ---------- */
+.where-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+.where-card {
+  padding: 24px 20px;
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+.where-card h3 { font-size: 1.6rem; margin-bottom: 12px; }
+.where-card p { margin: 0 0 18px; }
+
+/* Place names as small chips */
+.area-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+.area-list li {
+  padding: 4px 12px;
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 600;
+}
+.area-list li:first-child {
+  background: var(--yellow); /* home base */
+}
+/* "Further away? Just ask": an offer, not a promise, so it gets a dashed outline */
+.area-list li.area-more {
+  background: transparent;
+  border-style: dashed;
+  color: var(--violet);
+}
 
 /* ---------- Contact ---------- */
 .contact-inner { text-align: center; }
@@ -632,6 +680,8 @@ html:not(.no-js) .setlist:not(.is-expanded) li:nth-child(n+13) { display: none; 
   .setlist-wrap { padding: 36px 40px; }
   .setlist { columns: 2; }
   .photo-strip { gap: 40px; margin-top: 56px; }
+  .where-grid { grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .where-card { padding: 32px 28px; }
 
   .blob-1 { width: 280px; height: 280px; top: -80px; right: -80px; }
 }

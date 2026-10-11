@@ -8,8 +8,8 @@
     Both files have the same structure: when you change something here, change it there too.
   -->
   <!-- EDIT: title and description (shown in Google results) -->
-  <title>HIM/HER — Live-Duo für Hochzeiten &amp; Events aus Mainz</title>
-  <meta name="description" content="HIM/HER ist ein Live-Duo aus Mainz: Gesang, Gitarre und Mundharmonika für Hochzeiten, Feiern, Events und Pub-Abende. Wir spielen in Deutschland und den USA.">
+  <title>HIM/HER — Live-Duo für Hochzeiten &amp; Events in Mainz &amp; Rhein-Main</title>
+  <meta name="description" content="HIM/HER ist ein Live-Duo aus Mainz: Livemusik und Coversongs mit Gesang, Gitarre und Mundharmonika für Hochzeiten, Feiern und Events in Mainz, Wiesbaden, Frankfurt und dem ganzen Rhein-Main-Gebiet.">
   <link rel="canonical" href="https://himherduo.com/">
 
   <!-- The same page in both languages (tells Google which version to show to whom) -->
@@ -37,11 +37,16 @@
     "url": "https://himherduo.com/",
     "image": "https://himherduo.com/images/himher.jpg",
     "logo": "https://himherduo.com/images/favicon-96x96.png",
-    "description": "Live-Duo aus Mainz für Hochzeiten, Feiern, Events und Pub-Abende: Gesang, Gitarre und Mundharmonika. Spielt in Deutschland und den USA.",
+    "description": "Live-Duo aus Mainz: Livemusik und Coversongs für Hochzeiten, Feiern, Events und Pub-Abende: Gesang, Gitarre und Mundharmonika. Spielt in Deutschland und den USA.",
     "genre": ["Pop", "Rock", "Cover"],
     "email": "himherband@gmail.com",
     "foundingLocation": { "@type": "Place", "name": "Mainz, Germany" },
-    "areaServed": ["Mainz", "Germany", "United States"],
+    "areaServed": [
+      { "@type": "GeoCircle", "name": "Mainz, Germany, and the Rhine-Main region (Wiesbaden, Frankfurt, Darmstadt, Rheinhessen, Rheingau)",
+        "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 49.9929, "longitude": 8.2473 }, "geoRadius": "60000" },
+      { "@type": "GeoCircle", "name": "Bergen County, North Jersey and New York City",
+        "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 40.9263, "longitude": -74.0770 }, "geoRadius": "60000" }
+    ],
     "sameAs": ["https://www.instagram.com/himherduo/"],
     "member": [
       { "@type": "OrganizationRole", "roleName": "Vocals", "member": { "@type": "Person", "name": "Brittany" } },
@@ -185,7 +190,7 @@
           Live <em>erleben</em>
         </h2>
         <p class="lead">
-          Ob Hochzeit, Party oder Pub-Abend: Am besten erlebt man uns live. Zwei Stimmen, Gitarre und Mundharmonika, ganz nah dran.
+          Ob Hochzeit, Party oder Pub-Abend: Am besten erlebt man uns live. Livemusik mit zwei Stimmen, Gitarre und Mundharmonika, ganz nah dran.
         </p>
 
         <ul class="live-facts">
@@ -221,6 +226,7 @@
           <h3 class="setlist-title">
             Was wir spielen
           </h3>
+          <p class="setlist-intro">Coversongs von Klassikern bis zu aktuellen Hits, zum Mitsingen und Mittanzen.</p>
           <ol class="setlist" id="setlist">
             <li><strong>All Along the Watchtower</strong> <span class="artist">Jimi Hendrix</span></li>
             <li><strong>Angels</strong> <span class="artist">Robbie Williams</span></li>
@@ -298,6 +304,52 @@
           <a href="https://www.instagram.com/himherduo/" target="_blank" rel="noopener" class="btn btn-chip">
             Nächste Auftritte auf Instagram
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Where we play ===== -->
+    <section id="where" class="section section-light reveal">
+      <div class="container">
+        <h2 class="section-title">Wo wir <em>spielen</em></h2>
+        <p class="lead">
+          Zwei Zuhause, ein Duo: Wir leben in Mainz, und wenn wir in den USA sind,
+          wohnen wir im Bergen County, New Jersey.
+        </p>
+
+        <div class="where-grid">
+          <!-- EDIT: German area. Core area + "willing to travel" -->
+          <article class="where-card">
+            <h3><span aria-hidden="true">🇩🇪</span> Deutschland</h3>
+            <p>
+              Zuhause in Mainz: Hochzeiten, Feiern und Events im ganzen Rhein-Main-Gebiet.
+              Weiter weg? Fragt uns einfach, für den richtigen Gig sind wir gern unterwegs.
+            </p>
+            <ul class="area-list" aria-label="Wo wir in Deutschland spielen">
+              <li>Mainz</li>
+              <li>Wiesbaden</li>
+              <li>Frankfurt</li>
+              <li>Darmstadt</li>
+              <li>Rheinhessen</li>
+              <li>Rheingau</li>
+              <li class="area-more">Weiter weg? Fragt uns</li>
+            </ul>
+          </article>
+
+          <!-- EDIT: US area. Core area + "willing to travel" -->
+          <article class="where-card">
+            <h3><span aria-hidden="true">🇺🇸</span> New Jersey &amp; New York</h3>
+            <p>
+              Wenn wir in den USA sind, wohnen wir im Bergen County, New Jersey, und spielen in North Jersey
+              und New York City. Weiter weg? Fragt uns einfach.
+            </p>
+            <ul class="area-list" aria-label="Wo wir in den USA spielen">
+              <li>Bergen County</li>
+              <li>North Jersey</li>
+              <li>New York City</li>
+              <li class="area-more">Weiter weg? Fragt uns</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>

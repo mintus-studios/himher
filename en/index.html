@@ -8,8 +8,8 @@
     Both files have the same structure: when you change something here, change it there too.
   -->
   <!-- EDIT: title and description (shown in Google results) -->
-  <title>HIM/HER — Live Music Duo for Weddings &amp; Events from Germany</title>
-  <meta name="description" content="HIM/HER is a live music duo from Mainz, Germany: vocals, guitar and harmonica for weddings, parties, events and pub nights. Live duo and wedding singer, playing in Germany and the US.">
+  <title>HIM/HER — Live Duo for Weddings &amp; Events | New Jersey &amp; NYC</title>
+  <meta name="description" content="Live music duo and wedding singer for weddings, parties and events in New Jersey and New York City: cover songs with vocals, guitar and harmonica. Based in Bergen County, NJ, and Mainz, Germany.">
   <link rel="canonical" href="https://himherduo.com/en/">
 
   <!-- The same page in both languages (tells Google which version to show to whom) -->
@@ -21,7 +21,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://himherduo.com/en/">
   <meta property="og:title" content="HIM/HER — Live Music Duo from Germany">
-  <meta property="og:description" content="Vocals, guitar and harmonica for weddings, parties, events and pub nights. From Germany to America.">
+  <meta property="og:description" content="Live duo for weddings, parties and events in New Jersey, New York City and Germany. Vocals, guitar and harmonica.">
   <meta property="og:image" content="https://himherduo.com/images/himher.jpg">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="de_DE">
@@ -37,11 +37,16 @@
     "url": "https://himherduo.com/",
     "image": "https://himherduo.com/images/himher.jpg",
     "logo": "https://himherduo.com/images/favicon-96x96.png",
-    "description": "Live music duo from Mainz, Germany, for weddings, parties, events and pub nights: vocals, guitar and harmonica. Playing in Germany and the US.",
+    "description": "Live music and cover duo from Mainz, Germany, for weddings, parties, events and pub nights: vocals, guitar and harmonica. Playing in Germany and the US.",
     "genre": ["Pop", "Rock", "Cover"],
     "email": "himherband@gmail.com",
     "foundingLocation": { "@type": "Place", "name": "Mainz, Germany" },
-    "areaServed": ["Mainz", "Germany", "United States"],
+    "areaServed": [
+      { "@type": "GeoCircle", "name": "Mainz, Germany, and the Rhine-Main region (Wiesbaden, Frankfurt, Darmstadt, Rheinhessen, Rheingau)",
+        "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 49.9929, "longitude": 8.2473 }, "geoRadius": "60000" },
+      { "@type": "GeoCircle", "name": "Bergen County, North Jersey and New York City",
+        "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 40.9263, "longitude": -74.0770 }, "geoRadius": "60000" }
+    ],
     "sameAs": ["https://www.instagram.com/himherduo/"],
     "member": [
       { "@type": "OrganizationRole", "roleName": "Vocals", "member": { "@type": "Person", "name": "Brittany" } },
@@ -111,7 +116,7 @@
       <div class="blob blob-1" aria-hidden="true"></div>
       <div class="container hero-inner">
         <!-- EDIT: genre / location line -->
-        <p class="eyebrow">Live Duo · Mainz, Germany</p>
+        <p class="eyebrow">Live Duo · New Jersey &amp; Germany</p>
         <!-- EDIT: duo name -->
         <h1 class="hero-title">HIM/<br><span>HER</span></h1>
         <!-- EDIT: tagline -->
@@ -185,7 +190,7 @@
           See us <em>live</em>
         </h2>
         <p class="lead">
-          Whether it's a wedding, a party or a night at the pub, we're best experienced live: two voices, guitar and harmonica, up close.
+          Whether it's a wedding, a party or a night at the pub: live music with two voices, guitar and harmonica, up close.
         </p>
 
         <ul class="live-facts">
@@ -221,6 +226,7 @@
           <h3 class="setlist-title">
             What we play
           </h3>
+          <p class="setlist-intro">Cover songs from classics to today's hits, made for singing and dancing along.</p>
           <ol class="setlist" id="setlist">
             <li><strong>All Along the Watchtower</strong> <span class="artist">Jimi Hendrix</span></li>
             <li><strong>Angels</strong> <span class="artist">Robbie Williams</span></li>
@@ -302,6 +308,52 @@
       </div>
     </section>
 
+    <!-- ===== Where we play ===== -->
+    <section id="where" class="section section-light reveal">
+      <div class="container">
+        <h2 class="section-title">Where we <em>play</em></h2>
+        <p class="lead">
+          Two homes, one duo: we live in Mainz, Germany, and when we're in the States,
+          we're based in Bergen County, New Jersey.
+        </p>
+
+        <div class="where-grid">
+          <!-- EDIT: US area. Core area + "willing to travel" -->
+          <article class="where-card">
+            <h3><span aria-hidden="true">🇺🇸</span> New Jersey &amp; New York</h3>
+            <p>
+              Planning a wedding, party or event in North Jersey or New York City? When we're in the US,
+              we're based in Bergen County, NJ. Further away? Just ask: for the right gig, we're happy to travel.
+            </p>
+            <ul class="area-list" aria-label="Areas we play in the US">
+              <li>Bergen County</li>
+              <li>North Jersey</li>
+              <li>New York City</li>
+              <li class="area-more">Further away? Just ask</li>
+            </ul>
+          </article>
+
+          <!-- EDIT: German area. Core area + "willing to travel" -->
+          <article class="where-card">
+            <h3><span aria-hidden="true">🇩🇪</span> Germany</h3>
+            <p>
+              At home in Mainz: weddings, parties and events across the Frankfurt Rhine-Main region.
+              Further away? Just ask: for the right gig, we're happy to travel.
+            </p>
+            <ul class="area-list" aria-label="Areas we play in Germany">
+              <li>Mainz</li>
+              <li>Wiesbaden</li>
+              <li>Frankfurt</li>
+              <li>Darmstadt</li>
+              <li>Rheinhessen</li>
+              <li>Rheingau</li>
+              <li class="area-more">Further away? Just ask</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== Contact ===== -->
     <section id="contact" class="section section-dark reveal">
       <div class="container contact-inner">
@@ -309,7 +361,7 @@
           Let's <em>talk</em>
         </h2>
         <p class="lead">
-          Looking for a live duo or a wedding singer? Whether it's your wedding, a party, an event or a night at the pub: drop us a line, we'd love to hear from you.
+          Looking for a live duo or a wedding singer in New Jersey, New York or Germany? Whether it's your wedding, a party, an event or a night at the pub: drop us a line, we'd love to hear from you.
         </p>
 
         <!-- EDIT: booking email (change it in both places) -->
