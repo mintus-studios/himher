@@ -1,45 +1,63 @@
 // JS is running, so enable the scroll animations
 document.documentElement.classList.remove("no-js");
 
-// ---------- Language switch (DE | EN) ----------
-// The starting language is picked by the small script in <head>.
-// Texts that can't be <span lang="…"> (page title, alt texts, menu label) are swapped here.
-const pageTitles = {
-  de: "HIM/HER — Live-Duo für Hochzeiten & Pubs aus Mainz",
-  en: "HIM/HER — Live Music Duo & Wedding Singer from Germany", // EDIT: English page title
-};
+// ---------- Languages ----------
+// German lives at / (index.html), English at /en/ (en/index.html).
+// The DE | EN links in the header jump between the two pages.
+const pageLang = document.documentElement.lang === "en" ? "en" : "de";
+
 const menuLabels = {
   de: { open: "Menü öffnen", close: "Menü schließen" },
   en: { open: "Open menu", close: "Close menu" },
 };
 
-function currentLang() {
-  return document.documentElement.getAttribute("data-lang") === "en" ? "en" : "de";
+function rememberLang(lang) {
+  try { localStorage.setItem("lang", lang); } catch (e) { /* storage blocked: fine, just not remembered */ }
 }
 
-function setLang(lang, remember = true) {
-  const root = document.documentElement;
-  root.setAttribute("data-lang", lang);
-  root.setAttribute("lang", lang);
-  document.title = pageTitles[lang];
-
-  document.querySelectorAll("[data-alt-" + lang + "]").forEach((img) => {
-    img.alt = img.getAttribute("data-alt-" + lang);
-  });
-  document.querySelectorAll("[data-set-lang]").forEach((button) => {
-    button.setAttribute("aria-pressed", String(button.dataset.setLang === lang));
-  });
-  navToggle.setAttribute("aria-label", menuLabels[lang][nav.classList.contains("is-open") ? "close" : "open"]);
-
-  // Only remember a language the visitor picked themselves
-  if (remember) {
-    try { localStorage.setItem("lang", lang); } catch (e) { /* storage blocked: fine, just not remembered */ }
-  }
+function savedLang() {
+  try { return localStorage.getItem("lang"); } catch (e) { return null; }
 }
 
-document.querySelectorAll("[data-set-lang]").forEach((button) => {
-  button.addEventListener("click", () => setLang(button.dataset.setLang));
+// Clicking DE / EN remembers the choice and keeps the current section (#live etc.)
+document.querySelectorAll("[data-lang-link]").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    rememberLang(link.dataset.langLink);
+    location.href = link.getAttribute("href") + location.hash;
+  });
 });
+
+// First visit, browser in the other language: offer a one-click switch (small box at the bottom)
+const browserIsGerman = (navigator.languages || [navigator.language || ""])
+  .some((l) => String(l).toLowerCase().startsWith("de"));
+const otherLang = pageLang === "de" ? "en" : "de";
+
+if (!savedLang() && browserIsGerman === (otherLang === "de")) {
+  const hint = document.createElement("div");
+  hint.className = "lang-hint";
+  hint.setAttribute("role", "note");
+  const switchLink = document.querySelector('[data-lang-link="' + otherLang + '"]');
+  hint.innerHTML = otherLang === "en"
+    ? '<span>This page is also available in English.</span> <a href="#" lang="en">Switch to English</a>'
+    : '<span>Diese Seite gibt es auch auf Deutsch.</span> <a href="#" lang="de">Auf Deutsch lesen</a>';
+  const close = document.createElement("button");
+  close.type = "button";
+  close.className = "lang-hint-close";
+  close.setAttribute("aria-label", pageLang === "de" ? "Schließen" : "Close");
+  close.textContent = "×";
+  hint.appendChild(close);
+  document.body.appendChild(hint);
+
+  hint.querySelector("a").addEventListener("click", (event) => {
+    event.preventDefault();
+    if (switchLink) switchLink.click();
+  });
+  close.addEventListener("click", () => {
+    rememberLang(pageLang); // they're happy with this language: don't ask again
+    hint.remove();
+  });
+}
 
 // ---------- Mobile navigation ----------
 const navToggle = document.querySelector(".nav-toggle");
@@ -48,7 +66,7 @@ const nav = document.querySelector("#site-nav");
 function setNavOpen(open) {
   nav.classList.toggle("is-open", open);
   navToggle.setAttribute("aria-expanded", String(open));
-  navToggle.setAttribute("aria-label", menuLabels[currentLang()][open ? "close" : "open"]);
+  navToggle.setAttribute("aria-label", menuLabels[pageLang][open ? "close" : "open"]);
 }
 
 navToggle.addEventListener("click", () => {
@@ -103,9 +121,6 @@ if (setlist && setlistToggle) {
     if (!expanded) setlist.closest(".setlist-wrap").scrollIntoView({ block: "start" });
   });
 }
-
-// Apply the starting language (sets title, alt texts and which button is highlighted)
-setLang(currentLang(), false);
 
 // Current year in the footer
 document.querySelector("#year").textContent = new Date().getFullYear();

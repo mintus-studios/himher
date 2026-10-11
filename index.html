@@ -1,18 +1,27 @@
 <!DOCTYPE html>
-<html lang="de" data-lang="de" class="no-js">
+<html lang="de" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- EDIT: page title (the English title is in js/main.js) and description (shown in Google and link previews) -->
-  <title>HIM/HER — Live-Duo für Hochzeiten &amp; Pubs aus Mainz</title>
-  <meta name="description" content="HIM/HER ist ein Live-Duo aus Mainz: Gesang, Gitarre und Mundharmonika für eure Hochzeit oder den Pub-Abend. Live music duo and wedding singer from Germany, also playing in the US.">
+  <!--
+    GERMAN page (https://himherduo.com/). The English version is en/index.html.
+    Both files have the same structure: when you change something here, change it there too.
+  -->
+  <!-- EDIT: title and description (shown in Google results) -->
+  <title>HIM/HER — Live-Duo für Hochzeiten &amp; Events aus Mainz</title>
+  <meta name="description" content="HIM/HER ist ein Live-Duo aus Mainz: Gesang, Gitarre und Mundharmonika für Hochzeiten, Feiern, Events und Pub-Abende. Wir spielen in Deutschland und den USA.">
   <link rel="canonical" href="https://himherduo.com/">
+
+  <!-- The same page in both languages (tells Google which version to show to whom) -->
+  <link rel="alternate" hreflang="de" href="https://himherduo.com/">
+  <link rel="alternate" hreflang="en" href="https://himherduo.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://himherduo.com/en/">
 
   <!-- Link preview when the page is shared (WhatsApp, Instagram, Facebook …) -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://himherduo.com/">
   <meta property="og:title" content="HIM/HER — Live-Duo aus Mainz">
-  <meta property="og:description" content="Gesang, Gitarre und Mundharmonika für Hochzeiten und Pub-Abende. Live duo for weddings and pubs, from Germany to America.">
+  <meta property="og:description" content="Gesang, Gitarre und Mundharmonika für Hochzeiten, Feiern, Events und Pub-Abende. Von Mainz bis Amerika.">
   <meta property="og:image" content="https://himherduo.com/images/himher.jpg">
   <meta property="og:locale" content="de_DE">
   <meta property="og:locale:alternate" content="en_US">
@@ -28,7 +37,7 @@
     "url": "https://himherduo.com/",
     "image": "https://himherduo.com/images/himher.jpg",
     "logo": "https://himherduo.com/images/favicon-96x96.png",
-    "description": "Live-Duo aus Mainz für Hochzeiten und Pub-Abende: Gesang, Gitarre und Mundharmonika. Live music duo for weddings and pubs, playing in Germany and the US.",
+    "description": "Live-Duo aus Mainz für Hochzeiten, Feiern, Events und Pub-Abende: Gesang, Gitarre und Mundharmonika. Spielt in Deutschland und den USA.",
     "genre": ["Pop", "Rock", "Cover"],
     "email": "himherband@gmail.com",
     "foundingLocation": { "@type": "Place", "name": "Mainz, Germany" },
@@ -41,16 +50,12 @@
   }
   </script>
 
-  <!-- Pick the language before the page draws, so English visitors don't see German flash up first -->
+  <!-- If the visitor picked the other language before, go straight there -->
   <script>
     (function () {
-      var lang;
-      try { lang = localStorage.getItem("lang"); } catch (e) {}
-      if (lang !== "de" && lang !== "en") {
-        lang = (navigator.language || "de").toLowerCase().indexOf("de") === 0 ? "de" : "en";
-      }
-      document.documentElement.setAttribute("data-lang", lang);
-      document.documentElement.setAttribute("lang", lang);
+      var pref;
+      try { pref = localStorage.getItem("lang"); } catch (e) {}
+      if (pref === "en") location.replace("en/" + location.hash);
     })();
   </script>
 
@@ -65,13 +70,7 @@
 </head>
 <body>
 
-  <!--
-    HOW THE TWO LANGUAGES WORK
-    Every text exists twice: <span lang="de">…</span> and <span lang="en">…</span>.
-    The CSS hides the language that isn't selected. When you edit a text, change BOTH versions.
-  -->
-
-  <a class="skip-link" href="#main"><span lang="de">Zum Inhalt springen</span><span lang="en">Skip to content</span></a>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <!-- ===== Header ===== -->
   <header class="site-header">
@@ -80,17 +79,17 @@
       <a href="#top" class="logo">HIM<span>/HER</span></a>
 
       <div class="header-actions">
-        <nav id="site-nav" class="site-nav" aria-label="Main">
+        <nav id="site-nav" class="site-nav" aria-label="Hauptmenü">
           <ul>
-            <li><a href="#about"><span lang="de">Über uns</span><span lang="en">About</span></a></li>
+            <li><a href="#about">Über uns</a></li>
             <li><a href="#live">Live</a></li>
-            <li><a href="#contact"><span lang="de">Kontakt</span><span lang="en">Contact</span></a></li>
+            <li><a href="#contact">Kontakt</a></li>
           </ul>
         </nav>
 
         <div class="lang-switch" role="group" aria-label="Sprache / Language">
-          <button type="button" data-set-lang="de">DE</button>
-          <button type="button" data-set-lang="en">EN</button>
+          <a href="./" hreflang="de" lang="de" aria-current="page">DE</a>
+          <a href="en/" hreflang="en" lang="en" data-lang-link="en">EN</a>
         </div>
 
         <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menü öffnen">
@@ -112,17 +111,16 @@
       <div class="blob blob-1" aria-hidden="true"></div>
       <div class="container hero-inner">
         <!-- EDIT: genre / location line -->
-        <p class="eyebrow"><span lang="de">Live-Duo · Mainz</span><span lang="en">Live Duo · Mainz, Germany</span></p>
+        <p class="eyebrow">Live-Duo · Mainz</p>
         <!-- EDIT: duo name -->
         <h1 class="hero-title">HIM/<br><span>HER</span></h1>
         <!-- EDIT: tagline -->
         <p class="hero-tagline">
-          <span lang="de">Von Mainz bis Amerika, mit Gitarre im Gepäck.</span>
-          <span lang="en">From Germany to America, guitar in hand.</span>
+          Von Mainz bis Amerika, mit Gitarre im Gepäck.
         </p>
         <div class="hero-actions">
-          <a href="#live" class="btn btn-primary"><span lang="de">Live erleben</span><span lang="en">See us live</span></a>
-          <a href="#contact" class="btn btn-ghost"><span lang="de">Uns buchen</span><span lang="en">Book us</span></a>
+          <a href="#live" class="btn btn-primary">Live erleben</a>
+          <a href="#contact" class="btn btn-ghost">Uns buchen</a>
         </div>
       </div>
     </section>
@@ -131,28 +129,19 @@
     <section id="about" class="section section-light reveal">
       <div class="container">
         <h2 class="section-title">
-          <span lang="de">Über <em>uns</em></span><span lang="en">About <em>us</em></span>
+          Über <em>uns</em>
         </h2>
         <!-- EDIT: duo bio -->
         <p class="lead">
-          <span lang="de">
             Brittany und Diet: zwei Musikliebhaber, die sich gefunden haben, um ihre Musik zu anderen zu bringen.
             Ihr findet uns in Pubs, auf kleinen Bühnen und überall, wo es ein Mikro und ein Publikum gibt,
             von Mainz bis in die USA.
-          </span>
-          <span lang="en">
-            Brittany and Diet: two music lovers who found each other to bring their music to others.
-            You'll find us in pubs, on small stages, and wherever there's a mic and a crowd,
-            from Germany all the way to the US.
-          </span>
         </p>
 
         <div class="about-grid">
           <figure class="band-photo">
             <img src="images/himher.jpg"
                  alt="HIM/HER auf einer Open-Air-Bühne: Diet an der E-Gitarre, Brittany am Mikrofon"
-                 data-alt-de="HIM/HER auf einer Open-Air-Bühne: Diet an der E-Gitarre, Brittany am Mikrofon"
-                 data-alt-en="HIM/HER on an open-air stage: Diet on electric guitar, Brittany singing"
                  loading="lazy">
           </figure>
 
@@ -161,15 +150,13 @@
             <article class="member-card">
               <h3>Brittany</h3>
               <p class="member-role">
-                <span lang="de">Gesang</span>
-                <span lang="en">Vocals</span>
+                Gesang
               </p>
             </article>
             <article class="member-card">
               <h3>Diet</h3>
               <p class="member-role">
-                <span lang="de">Gitarre · Mundharmonika · Gesang</span>
-                <span lang="en">Guitar · Harmonica · Vocals</span>
+                Gitarre · Mundharmonika · Gesang
               </p>
             </article>
           </div>
@@ -180,15 +167,11 @@
           <figure>
             <img src="images/live-open-air.jpg"
                  alt="Brittany singt auf einem Barhocker, dahinter Diet an der Akustikgitarre, bei einem Open-Air-Auftritt"
-                 data-alt-de="Brittany singt auf einem Barhocker, dahinter Diet an der Akustikgitarre, bei einem Open-Air-Auftritt"
-                 data-alt-en="Brittany singing on a bar stool with Diet on acoustic guitar behind her at an open-air gig"
                  loading="lazy">
           </figure>
           <figure>
             <img src="images/live-evening.jpg"
                  alt="Brittany im blauen Kleid am Mikrofon, Diet an der blauen E-Gitarre, bei einem Abendauftritt im Garten"
-                 data-alt-de="Brittany im blauen Kleid am Mikrofon, Diet an der blauen E-Gitarre, bei einem Abendauftritt im Garten"
-                 data-alt-en="Brittany in a blue dress at the mic, Diet on a blue electric guitar, at an evening garden gig"
                  loading="lazy">
           </figure>
         </div>
@@ -199,17 +182,16 @@
     <section id="live" class="section section-gradient reveal">
       <div class="container">
         <h2 class="section-title">
-          <span lang="de">Live <em>erleben</em></span><span lang="en">See us <em>live</em></span>
+          Live <em>erleben</em>
         </h2>
         <p class="lead">
-          <span lang="de">Ob Hochzeit oder Pub-Abend: Am besten erlebt man uns live. Zwei Stimmen, Gitarre und Mundharmonika, ganz nah dran.</span>
-          <span lang="en">Whether it's a wedding or a night at the pub, we're best experienced live: two voices, guitar and harmonica, up close.</span>
+          Ob Hochzeit, Party oder Pub-Abend: Am besten erlebt man uns live. Zwei Stimmen, Gitarre und Mundharmonika, ganz nah dran.
         </p>
 
         <ul class="live-facts">
-          <li><strong>2</strong><span lang="de">Stimmen</span><span lang="en">voices</span></li>
-          <li><strong>1</strong><span lang="de">Gitarre</span><span lang="en">guitar</span></li>
-          <li><strong>1</strong><span lang="de">Mundharmonika</span><span lang="en">harmonica</span></li>
+          <li><strong>2</strong>Stimmen</li>
+          <li><strong>1</strong>Gitarre</li>
+          <li><strong>1</strong>Mundharmonika</li>
         </ul>
 
         <!-- EDIT: live clips. preload="metadata" = the video only downloads when someone presses play -->
@@ -220,7 +202,7 @@
             </video>
             <figcaption>
               <strong>Valerie</strong>
-              <span class="tag" lang="de">Pub-Abend</span><span class="tag" lang="en">Pub night</span>
+              <span class="tag">Pub-Abend</span>
             </figcaption>
           </figure>
           <figure class="live-video">
@@ -229,7 +211,7 @@
             </video>
             <figcaption>
               <strong>Price Tag</strong>
-              <span class="tag tag-yellow" lang="de">Hochzeit</span><span class="tag tag-yellow" lang="en">Wedding</span>
+              <span class="tag tag-yellow">Hochzeit</span>
             </figcaption>
           </figure>
         </div>
@@ -237,7 +219,7 @@
         <!-- EDIT: song list (alphabetical). Add or remove <li> lines; update the "63" in the button text too. -->
         <div class="setlist-wrap">
           <h3 class="setlist-title">
-            <span lang="de">Was wir spielen</span><span lang="en">What we play</span>
+            Was wir spielen
           </h3>
           <ol class="setlist" id="setlist">
             <li><strong>All Along the Watchtower</strong> <span class="artist">Jimi Hendrix</span></li>
@@ -303,18 +285,18 @@
             <li><strong>When I Come Around</strong> <span class="artist">Green Day</span></li>
             <li><strong>Wondering Why</strong> <span class="artist">The Red Clay Strays</span></li>
             <li><strong>Zombie</strong> <span class="artist">The Cranberries</span></li>
-            <li class="setlist-more"><span lang="de">… und noch viel mehr!</span><span lang="en">… and many more!</span></li>
+            <li class="setlist-more">… und noch viel mehr!</li>
           </ol>
           <button type="button" class="btn btn-chip setlist-toggle" aria-expanded="false" aria-controls="setlist">
-            <span class="show-more"><span lang="de">Alle 63 Songs zeigen</span><span lang="en">Show all 63 songs</span></span>
-            <span class="show-less"><span lang="de">Weniger zeigen</span><span lang="en">Show less</span></span>
+            <span class="show-more">Alle 63 Songs zeigen</span>
+            <span class="show-less">Weniger zeigen</span>
           </button>
         </div>
 
         <div class="live-actions">
-          <a href="#contact" class="btn btn-primary"><span lang="de">Uns buchen</span><span lang="en">Book us</span></a>
+          <a href="#contact" class="btn btn-primary">Uns buchen</a>
           <a href="https://www.instagram.com/himherduo/" target="_blank" rel="noopener" class="btn btn-chip">
-            <span lang="de">Nächste Auftritte auf Instagram</span><span lang="en">Next shows on Instagram</span>
+            Nächste Auftritte auf Instagram
           </a>
         </div>
       </div>
@@ -324,11 +306,10 @@
     <section id="contact" class="section section-dark reveal">
       <div class="container contact-inner">
         <h2 class="section-title">
-          <span lang="de">Schreibt <em>uns</em></span><span lang="en">Let's <em>talk</em></span>
+          Schreibt <em>uns</em>
         </h2>
         <p class="lead">
-          <span lang="de">Ihr sucht ein Live-Duo für eure Hochzeit oder Musik für den Pub-Abend? Oder wollt einfach Hallo sagen? Wir freuen uns auf eure Nachricht.</span>
-          <span lang="en">Looking for a live duo or a wedding singer for your big day, or music for a night at the pub? Or just want to say hi? Drop us a line.</span>
+          Ihr sucht ein Live-Duo für eure Hochzeit, eure Feier oder euer Event? Ob Hochzeit, Party oder Pub-Abend: Schreibt uns, wir freuen uns auf eure Nachricht.
         </p>
 
         <!-- EDIT: booking email (change it in both places) -->
@@ -351,7 +332,7 @@
   <footer class="site-footer">
     <div class="container">
       <!-- EDIT: duo name -->
-      <p>© <span id="year"></span> HIM/HER. <span lang="de">Mit Liebe zur Musik gemacht.</span><span lang="en">Made with love for music.</span></p>
+      <p>© <span id="year"></span> HIM/HER. Mit Liebe zur Musik gemacht.</p>
     </div>
   </footer>
 
