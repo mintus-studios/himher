@@ -505,6 +505,24 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1; margin: 0; }
   color: var(--ink);
   transform: rotate(3deg);
 }
+/* Clickable sticker (the "Wedding" tag links to the wedding page) */
+.tag-link {
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.tag-link:hover { transform: rotate(3deg) translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
+
+/* Small "Wedding? This way →" link under the hero buttons */
+.hero-wedding-link {
+  display: inline-block;
+  margin-top: 22px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid var(--yellow);
+  padding-bottom: 2px;
+}
+.hero-wedding-link:hover { color: var(--yellow); }
 
 /* Song list: a white card, 1 column on phones, 2-3 on bigger screens.
    With JS, only the first 12 songs show until "Show all" is pressed. */
