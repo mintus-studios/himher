@@ -5,6 +5,9 @@ CLAUDE.md
 README.md
 .claude/
 
+# Texts for directory profiles (The Knot, GigSalad, Hochzeitsportale) – not part of the website
+profiles/
+
 # Song-list screenshots and the stray Windows shortcut in images/
 images/Screenshot_*.png
 *.lnk

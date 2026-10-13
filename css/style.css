@@ -553,6 +553,35 @@ html:not(.no-js) .setlist:not(.is-expanded) li:nth-child(n+13) { display: none; 
 .setlist-toggle[aria-expanded="true"] .show-more,
 .setlist-toggle[aria-expanded="false"] .show-less { display: none; }
 
+/* "What you get" / "Das bekommt ihr": four small cards above the booking buttons */
+.perks-wrap { margin: 0 0 40px; }
+.perks-title {
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  margin-bottom: 20px;
+}
+.perks {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+}
+.perks li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.3;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.perk-icon { font-size: 1.8rem; line-height: 1; }
+
 .live-actions { display: flex; flex-wrap: wrap; gap: 16px; }
 
 /* ---------- Where we play ---------- */
@@ -681,6 +710,8 @@ html:not(.no-js) .setlist:not(.is-expanded) li:nth-child(n+13) { display: none; 
   .setlist { columns: 2; }
   .photo-strip { gap: 40px; margin-top: 56px; }
   .where-grid { grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .perks { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .perks li { padding: 22px 18px; font-size: 1.05rem; }
   .where-card { padding: 32px 28px; }
 
   .blob-1 { width: 280px; height: 280px; top: -80px; right: -80px; }
