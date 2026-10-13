@@ -708,10 +708,16 @@ html:not(.no-js) .setlist:not(.is-expanded) li:nth-child(n+13) { display: none; 
   align-items: flex-end;
   padding: calc(var(--header-height) + 40px) 0 64px;
   color: #fff;
-  /* Main photo: the stone courtyard (tall photo, framed higher on wide screens so faces stay in view, see below) */
+  /* Main photo: the stone courtyard (1280×1600, 4:5).
+     Phones: show the WHOLE photo across the full width (never crop the sides, Diet stands at the right edge),
+     text sits below it on a dark warm background, with a soft fade in between.
+     From 768px: full-screen photo, see the media query below. */
+  min-height: 0;
+  padding-top: 112vw;                 /* photo is 125vw tall; the text overlaps its faded bottom */
   background:
-    linear-gradient(180deg, rgba(20, 8, 31, .10) 0%, rgba(20, 8, 31, .25) 45%, rgba(20, 8, 31, .80) 100%),
-    url("../images/wedding-courtyard.jpg") center 30% / cover;
+    linear-gradient(180deg, rgba(43, 35, 33, 0) 60%, rgba(43, 35, 33, .85) 88%, #2b2321 100%) top center / 100% 125vw no-repeat,
+    url("../images/wedding-courtyard.jpg") top center / 100% auto no-repeat,
+    #2b2321;
 }
 .wedding-eyebrow {
   margin: 0 0 14px;
@@ -1058,10 +1064,13 @@ html:not(.no-js) .setlist:not(.is-expanded) li:nth-child(n+13) { display: none; 
   /* Wedding pages */
   .page-wedding .site-nav ul { gap: 22px; }
   .wedding-hero {
+    min-height: 88vh;
+    min-height: 88svh;
+    padding-top: calc(var(--header-height) + 40px);
     padding-bottom: 96px;
     background:
       linear-gradient(180deg, rgba(20, 8, 31, .05) 0%, rgba(20, 8, 31, .20) 45%, rgba(20, 8, 31, .80) 100%),
-      url("../images/wedding-courtyard.jpg") center 28% / cover;
+      url("../images/wedding-courtyard.jpg") 70% 28% / cover; /* 70%: if anything is cut on the sides, cut left (empty wall), not Diet on the right */
   }
   .wedding-gallery { grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .wedding-intro { grid-template-columns: 1fr 1.2fr; gap: 56px; }
