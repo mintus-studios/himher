@@ -3,16 +3,30 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://himherduo.com/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://himherduo.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://himherduo.com/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://himherduo.com/en/"/>
   </url>
   <url>
     <loc>https://himherduo.com/en/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://himherduo.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://himherduo.com/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://himherduo.com/en/"/>
+  </url>
+  <url>
+    <loc>https://himherduo.com/hochzeit/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://himherduo.com/hochzeit/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://himherduo.com/en/weddings/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://himherduo.com/en/weddings/"/>
+  </url>
+  <url>
+    <loc>https://himherduo.com/en/weddings/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://himherduo.com/hochzeit/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://himherduo.com/en/weddings/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://himherduo.com/en/weddings/"/>
   </url>
 </urlset>
