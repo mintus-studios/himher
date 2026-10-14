@@ -708,14 +708,14 @@ html:not(.no-js) .setlist:not(.is-expanded) li:nth-child(n+13) { display: none; 
   align-items: flex-end;
   padding: calc(var(--header-height) + 40px) 0 64px;
   color: #fff;
-  /* Main photo: the stone courtyard (1280×1600, 4:5).
+  /* Main photo: the stone courtyard (1210×1600; 70 px cropped off the left to remove a door).
      Phones: show the WHOLE photo across the full width (never crop the sides, Diet stands at the right edge),
      text sits below it on a dark warm background, with a soft fade in between.
      From 768px: full-screen photo, see the media query below. */
   min-height: 0;
-  padding-top: 112vw;                 /* photo is 125vw tall; the text overlaps its faded bottom */
+  padding-top: 118vw;                 /* photo (1210×1600, door cropped off) is 132vw tall; the text overlaps its faded bottom */
   background:
-    linear-gradient(180deg, rgba(43, 35, 33, 0) 60%, rgba(43, 35, 33, .85) 88%, #2b2321 100%) top center / 100% 125vw no-repeat,
+    linear-gradient(180deg, rgba(43, 35, 33, 0) 60%, rgba(43, 35, 33, .85) 88%, #2b2321 100%) top center / 100% 132vw no-repeat,
     url("../images/wedding-courtyard.jpg") top center / 100% auto no-repeat,
     #2b2321;
 }
